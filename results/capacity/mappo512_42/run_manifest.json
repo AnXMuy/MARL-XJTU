@@ -1,0 +1,16 @@
+{
+  "environment": "coordinated-home-v3.0",
+  "framework": "BenchMARL/TorchRL",
+  "args": {
+    "algorithm": "mappo",
+    "steps": 30000000,
+    "envs": 1024,
+    "hidden": 512,
+    "layers": 3,
+    "seed": 42,
+    "device": "cuda",
+    "output": "results/capacity/mappo512_42"
+  },
+  "reward_scale": 0.2,
+  "notes": "Actual BenchMARL runner, collector, GAE and ClipPPOLoss. Nine categorical joint room actions."
+}

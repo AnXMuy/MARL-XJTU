@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "javascript_errors": [],
+  "checks": [
+    "load",
+    "stable canvas node across automatic updates",
+    "named baseline switch resets paired day",
+    "scene",
+    "two continuous speech result events",
+    "mic stop",
+    "layout apply",
+    "default automatic clock without click",
+    "full day",
+    "mobile screenshot"
+  ],
+  "limitation": "Speech events mocked; no microphone hardware or acoustic recognition tested."
+}

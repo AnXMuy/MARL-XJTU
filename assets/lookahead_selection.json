@@ -1,0 +1,144 @@
+{
+  "checkpoint": "results/layout/mappo42/best_actor.pt",
+  "sha256": "e92cedbc567dfb625f6580d1c8eb67b15184ceebaabe3a0f6a5f421d647a99f3",
+  "validation": {
+    "4": {
+      "return": -72.97771716152783,
+      "scenarios": {
+        "default": {
+          "cost": 24.583334101519238,
+          "energy_kwh": 31.164999812530976,
+          "occupied_degree_hours": 12.514358679453531,
+          "occupied_violation_rate": 0.42105263157894735,
+          "peak_kw": 4.0,
+          "overload_kwh": 0.0,
+          "team_return": -80.19106642094751,
+          "light_mismatch": 0.001157407441900836
+        },
+        "eco": {
+          "cost": 22.660667166579515,
+          "energy_kwh": 29.198332993934553,
+          "occupied_degree_hours": 14.532519340515137,
+          "occupied_violation_rate": 0.43421052631578944,
+          "peak_kw": 4.0,
+          "overload_kwh": 0.0,
+          "team_return": -104.11754327267408,
+          "light_mismatch": 0.001157407441900836
+        },
+        "sleep": {
+          "cost": 11.490666890284047,
+          "energy_kwh": 14.77166645694524,
+          "occupied_degree_hours": 0.23138030370076498,
+          "occupied_violation_rate": 0.09027777777777778,
+          "peak_kw": 2.6066665649414062,
+          "overload_kwh": 0.0,
+          "team_return": -14.526246666753044,
+          "light_mismatch": 0.0
+        },
+        "changes": {
+          "cost": 25.298000757272046,
+          "energy_kwh": 30.823333146981895,
+          "occupied_degree_hours": 15.028203248977661,
+          "occupied_violation_rate": 0.3080257402687309,
+          "peak_kw": 3.8600001335144043,
+          "overload_kwh": 0.0,
+          "team_return": -93.0760122857367,
+          "light_mismatch": 0.008101852093305854
+        }
+      }
+    },
+    "8": {
+      "return": -44.1839903149715,
+      "scenarios": {
+        "default": {
+          "cost": 26.492000790312886,
+          "energy_kwh": 35.20666638482362,
+          "occupied_degree_hours": 3.3686168988545737,
+          "occupied_violation_rate": 0.24561403508771928,
+          "peak_kw": 3.9133334159851074,
+          "overload_kwh": 0.0,
+          "team_return": -40.23271496640518,
+          "light_mismatch": 0.0
+        },
+        "eco": {
+          "cost": 25.740667681209743,
+          "energy_kwh": 34.1599999157091,
+          "occupied_degree_hours": 3.9112868309020996,
+          "occupied_violation_rate": 0.24561403508771928,
+          "peak_kw": 3.933333396911621,
+          "overload_kwh": 0.0,
+          "team_return": -60.809795970562845,
+          "light_mismatch": 0.0
+        },
+        "sleep": {
+          "cost": 11.305333584779873,
+          "energy_kwh": 15.631666468145946,
+          "occupied_degree_hours": 0.2308370272318522,
+          "occupied_violation_rate": 0.07638888888888888,
+          "peak_kw": 2.99999992052714,
+          "overload_kwh": 0.0,
+          "team_return": -14.294207012358433,
+          "light_mismatch": 0.0
+        },
+        "changes": {
+          "cost": 27.534667479184765,
+          "energy_kwh": 35.59833314176649,
+          "occupied_degree_hours": 6.89590581258138,
+          "occupied_violation_rate": 0.2277982315365493,
+          "peak_kw": 3.7800002098083496,
+          "overload_kwh": 0.0,
+          "team_return": -61.39924331055954,
+          "light_mismatch": 0.0
+        }
+      }
+    },
+    "16": {
+      "return": -32.58638671700222,
+      "scenarios": {
+        "default": {
+          "cost": 26.240667284311105,
+          "energy_kwh": 38.66499956076344,
+          "occupied_degree_hours": 0.1507396697998047,
+          "occupied_violation_rate": 0.09210526315789473,
+          "peak_kw": 3.8466666539510093,
+          "overload_kwh": 0.0,
+          "team_return": -29.353540875948966,
+          "light_mismatch": 0.0
+        },
+        "eco": {
+          "cost": 25.30266749408717,
+          "energy_kwh": 36.88666631684949,
+          "occupied_degree_hours": 0.22895208994547525,
+          "occupied_violation_rate": 0.10964912280701754,
+          "peak_kw": 3.740000009536743,
+          "overload_kwh": 0.0,
+          "team_return": -47.69930306635797,
+          "light_mismatch": 0.0
+        },
+        "sleep": {
+          "cost": 11.40000025019981,
+          "energy_kwh": 16.398333131025236,
+          "occupied_degree_hours": 0.17087316513061523,
+          "occupied_violation_rate": 0.04513888888888889,
+          "peak_kw": 3.2799998919169107,
+          "overload_kwh": 0.0,
+          "team_return": -13.94907117045174,
+          "light_mismatch": 0.0
+        },
+        "changes": {
+          "cost": 27.032000792988885,
+          "energy_kwh": 37.85166643870374,
+          "occupied_degree_hours": 1.214384396870931,
+          "occupied_violation_rate": 0.10483705172178692,
+          "peak_kw": 3.7866667111714682,
+          "overload_kwh": 0.0,
+          "team_return": -39.34363175525019,
+          "light_mismatch": 0.0
+        }
+      }
+    }
+  },
+  "selected_horizon": 16,
+  "protocol": "Horizon selected by mean original team return on validation seeds910000:910003 only. Test seeds100000:100020. Perfect known weather and occupancy forecast; future voice commands not visible. Lighting from learned actor.",
+  "results": {}
+}

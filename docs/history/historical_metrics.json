@@ -1,0 +1,438 @@
+{
+  "assets/metrics.json": {
+    "environment": "v1",
+    "results": {
+      "default": {
+        "rule": {
+          "cost": 26.1094,
+          "energy_kwh": 33.33775,
+          "comfort_violation_rate": 0.38229166666666664,
+          "scene_satisfaction_rate": null
+        },
+        "marl": {
+          "cost": 61.2226,
+          "energy_kwh": 86.38999999999999,
+          "comfort_violation_rate": 0.27864583333333337,
+          "scene_satisfaction_rate": null
+        }
+      },
+      "eco": {
+        "rule": {
+          "cost": 26.1094,
+          "energy_kwh": 33.33775,
+          "comfort_violation_rate": 0.38229166666666664,
+          "scene_satisfaction_rate": null
+        },
+        "marl": {
+          "cost": 56.163700000000006,
+          "energy_kwh": 79.735,
+          "comfort_violation_rate": 0.3104166666666666,
+          "scene_satisfaction_rate": null
+        }
+      },
+      "sleep": {
+        "rule": {
+          "cost": 18.004,
+          "energy_kwh": 23.830000000000005,
+          "comfort_violation_rate": 0.36718750000000006,
+          "scene_satisfaction_rate": 0.6328125000000001
+        },
+        "marl": {
+          "cost": 51.955,
+          "energy_kwh": 71.8105,
+          "comfort_violation_rate": 0.2203125,
+          "scene_satisfaction_rate": 0.4343749999999999
+        }
+      }
+    },
+    "note": "Historical environment only, not current model results."
+  },
+  "assets/v2/pilot_metrics.json": {
+    "environment": "coordinated-home-v2.0",
+    "results": {
+      "default": {
+        "thermostat": {
+          "cost": 23.611200609337537,
+          "energy_kwh": 28.377999313361943,
+          "occupied_degree_hours": 22.178264474868776,
+          "occupied_violation_rate": 0.4805789473684211,
+          "peak_kw": 5.77599983215332,
+          "overload_kwh": 1.2269996881484986,
+          "team_return": -143.82231089440174,
+          "light_mismatch": 0.0
+        },
+        "coordinated_rule": {
+          "cost": 26.823201085743495,
+          "energy_kwh": 33.428000047430395,
+          "occupied_degree_hours": 9.2205180644989,
+          "occupied_violation_rate": 0.43121052631578943,
+          "peak_kw": 3.928000068664551,
+          "overload_kwh": 0.0,
+          "team_return": -65.19414921612479,
+          "light_mismatch": 0.0
+        },
+        "mappo": {
+          "cost": 25.578400971740486,
+          "energy_kwh": 38.67450031731278,
+          "occupied_degree_hours": 0.6981753349304199,
+          "occupied_violation_rate": 0.08878947368421053,
+          "peak_kw": 3.922000026702881,
+          "overload_kwh": 0.004499995708465576,
+          "team_return": -31.725576553400607,
+          "light_mismatch": 0.0
+        }
+      },
+      "eco": {
+        "thermostat": {
+          "cost": 23.611200609337537,
+          "energy_kwh": 28.377999313361943,
+          "occupied_degree_hours": 22.178264474868776,
+          "occupied_violation_rate": 0.4805789473684211,
+          "peak_kw": 5.77599983215332,
+          "overload_kwh": 1.2269996881484986,
+          "team_return": -161.53070970680565,
+          "light_mismatch": 0.0
+        },
+        "coordinated_rule": {
+          "cost": 26.823201085743495,
+          "energy_kwh": 33.428000047430395,
+          "occupied_degree_hours": 9.2205180644989,
+          "occupied_violation_rate": 0.43121052631578943,
+          "peak_kw": 3.928000068664551,
+          "overload_kwh": 0.0,
+          "team_return": -85.31154650901445,
+          "light_mismatch": 0.0
+        },
+        "mappo": {
+          "cost": 24.327600908838214,
+          "energy_kwh": 36.00900039682165,
+          "occupied_degree_hours": 1.7396284103393556,
+          "occupied_violation_rate": 0.1379473684210526,
+          "peak_kw": 3.918000030517578,
+          "overload_kwh": 0.004499995708465576,
+          "team_return": -53.43563818745315,
+          "light_mismatch": 0.0
+        }
+      },
+      "sleep": {
+        "thermostat": {
+          "cost": 12.984000276285224,
+          "energy_kwh": 16.029999844450504,
+          "occupied_degree_hours": 1.1975200176239014,
+          "occupied_violation_rate": 0.20833333333333334,
+          "peak_kw": 2.0199999809265137,
+          "overload_kwh": 0.0,
+          "team_return": -23.862560937996022,
+          "light_mismatch": 0.0
+        },
+        "coordinated_rule": {
+          "cost": 12.36400030318182,
+          "energy_kwh": 16.079999843984844,
+          "occupied_degree_hours": 1.1835644721984864,
+          "occupied_violation_rate": 0.215625,
+          "peak_kw": 2.0199999809265137,
+          "overload_kwh": 0.0,
+          "team_return": -23.0689165456919,
+          "light_mismatch": 0.0
+        },
+        "mappo": {
+          "cost": 14.348000236228108,
+          "energy_kwh": 24.210000120382755,
+          "occupied_degree_hours": 0.15730323791503906,
+          "occupied_violation_rate": 0.02395833333333333,
+          "peak_kw": 3.3800000190734862,
+          "overload_kwh": 0.0009999990463256836,
+          "team_return": -17.041386703844182,
+          "light_mismatch": 0.0
+        }
+      },
+      "changes": {
+        "thermostat": {
+          "cost": 27.692200567014517,
+          "energy_kwh": 32.182499236240986,
+          "occupied_degree_hours": 17.327250623703,
+          "occupied_violation_rate": 0.3717244247279402,
+          "peak_kw": 5.779999828338623,
+          "overload_kwh": 1.3794997811317444,
+          "team_return": -128.12857407042756,
+          "light_mismatch": 0.0
+        },
+        "coordinated_rule": {
+          "cost": 29.408201279561034,
+          "energy_kwh": 34.51250002039596,
+          "occupied_degree_hours": 11.767048549652099,
+          "occupied_violation_rate": 0.3313717944207527,
+          "peak_kw": 3.760000133514404,
+          "overload_kwh": 0.0,
+          "team_return": -86.0070173127111,
+          "light_mismatch": 0.0
+        },
+        "mappo": {
+          "cost": 27.61940058155451,
+          "energy_kwh": 39.39100022101775,
+          "occupied_degree_hours": 0.6756719589233399,
+          "occupied_violation_rate": 0.05663451686430336,
+          "peak_kw": 3.788000059127808,
+          "overload_kwh": 0.0,
+          "team_return": -39.507811382901856,
+          "light_mismatch": 0.0
+        }
+      }
+    },
+    "note": "Historical environment only, not current model results."
+  },
+  "assets/v2/metrics.json": {
+    "environment": "coordinated-home-v2.0",
+    "results": {
+      "default": {
+        "thermostat": {
+          "cost": 23.61620060252026,
+          "energy_kwh": 28.459999314462767,
+          "occupied_degree_hours": 23.11003831624985,
+          "occupied_violation_rate": 0.4929736842105264,
+          "peak_kw": 5.766999840736389,
+          "overload_kwh": 1.1264996886253358,
+          "team_return": -150.53732552893925,
+          "light_mismatch": 0.0
+        },
+        "coordinated_rule": {
+          "cost": 27.13820121861063,
+          "energy_kwh": 33.63000013278797,
+          "occupied_degree_hours": 9.442182731628417,
+          "occupied_violation_rate": 0.4453157894736842,
+          "peak_kw": 3.939000058174133,
+          "overload_kwh": 0.0,
+          "team_return": -68.8751691311365,
+          "light_mismatch": 0.0
+        },
+        "mappo42": {
+          "cost": 26.53430084970314,
+          "energy_kwh": 39.84500015587546,
+          "occupied_degree_hours": 0.33345751762390136,
+          "occupied_violation_rate": 0.05421052631578947,
+          "peak_kw": 4.033999979496002,
+          "overload_kwh": 0.05449998378753662,
+          "team_return": -31.68403129254002,
+          "light_mismatch": 0.0
+        },
+        "mappo43": {
+          "cost": 28.181300519243813,
+          "energy_kwh": 41.45075006289407,
+          "occupied_degree_hours": 0.17480273246765138,
+          "occupied_violation_rate": 0.037421052631578945,
+          "peak_kw": 3.9590000033378603,
+          "overload_kwh": 0.03024999499320984,
+          "team_return": -33.00006040527951,
+          "light_mismatch": 0.02473958333333333
+        },
+        "mappo44": {
+          "cost": 26.866500940010884,
+          "energy_kwh": 41.47099992334843,
+          "occupied_degree_hours": 0.12355988025665283,
+          "occupied_violation_rate": 0.030342105263157892,
+          "peak_kw": 4.212000012397766,
+          "overload_kwh": 0.0744999885559082,
+          "team_return": -30.921328087034635,
+          "light_mismatch": 0.0
+        },
+        "ippo42": {
+          "cost": 26.839300705492498,
+          "energy_kwh": 40.3477501844056,
+          "occupied_degree_hours": 0.21385459899902343,
+          "occupied_violation_rate": 0.04647368421052631,
+          "peak_kw": 4.07999997138977,
+          "overload_kwh": 0.046249985694885254,
+          "team_return": -31.131912200385706,
+          "light_mismatch": 0.0
+        }
+      },
+      "eco": {
+        "thermostat": {
+          "cost": 23.61620060252026,
+          "energy_kwh": 28.459999314462767,
+          "occupied_degree_hours": 23.11003831624985,
+          "occupied_violation_rate": 0.4929736842105264,
+          "peak_kw": 5.766999840736389,
+          "overload_kwh": 1.1264996886253358,
+          "team_return": -168.24947455376386,
+          "light_mismatch": 0.0
+        },
+        "coordinated_rule": {
+          "cost": 27.13820121861063,
+          "energy_kwh": 33.63000013278797,
+          "occupied_degree_hours": 9.442182731628417,
+          "occupied_violation_rate": 0.4453157894736842,
+          "peak_kw": 3.939000058174133,
+          "overload_kwh": 0.0,
+          "team_return": -89.22881632640492,
+          "light_mismatch": 0.0
+        },
+        "mappo42": {
+          "cost": 25.020400959416293,
+          "energy_kwh": 37.069250317150725,
+          "occupied_degree_hours": 1.273633074760437,
+          "occupied_violation_rate": 0.12507894736842104,
+          "peak_kw": 3.9690000295639036,
+          "overload_kwh": 0.035249990224838254,
+          "team_return": -53.074681294267066,
+          "light_mismatch": 0.0
+        },
+        "mappo43": {
+          "cost": 26.495500755519608,
+          "energy_kwh": 38.51000019302592,
+          "occupied_degree_hours": 0.9265188217163086,
+          "occupied_violation_rate": 0.1131842105263158,
+          "peak_kw": 4.0100000381469725,
+          "overload_kwh": 0.04024999737739563,
+          "team_return": -54.82918592125643,
+          "light_mismatch": 0.025520833333333336
+        },
+        "mappo44": {
+          "cost": 25.587201077316422,
+          "energy_kwh": 38.22275013662875,
+          "occupied_degree_hours": 0.44628314971923827,
+          "occupied_violation_rate": 0.10060526315789473,
+          "peak_kw": 4.180000066757202,
+          "overload_kwh": 0.06275000572204589,
+          "team_return": -50.59176523961359,
+          "light_mismatch": 0.0
+        },
+        "ippo42": {
+          "cost": 25.505100783961826,
+          "energy_kwh": 37.775250271335246,
+          "occupied_degree_hours": 0.8552863359451294,
+          "occupied_violation_rate": 0.10826315789473684,
+          "peak_kw": 4.043000042438507,
+          "overload_kwh": 0.03824999928474426,
+          "team_return": -51.92027823876124,
+          "light_mismatch": 0.0
+        }
+      },
+      "sleep": {
+        "thermostat": {
+          "cost": 13.124000280408655,
+          "energy_kwh": 16.079999843984844,
+          "occupied_degree_hours": 1.1944010257720947,
+          "occupied_violation_rate": 0.2125,
+          "peak_kw": 2.0199999809265137,
+          "overload_kwh": 0.0,
+          "team_return": -23.991608992789406,
+          "light_mismatch": 0.0
+        },
+        "coordinated_rule": {
+          "cost": 12.494000306958332,
+          "energy_kwh": 16.254999842355026,
+          "occupied_degree_hours": 1.216018295288086,
+          "occupied_violation_rate": 0.21979166666666666,
+          "peak_kw": 2.0199999809265137,
+          "overload_kwh": 0.0,
+          "team_return": -23.47154712114716,
+          "light_mismatch": 0.0
+        },
+        "mappo42": {
+          "cost": 14.217300145234912,
+          "energy_kwh": 22.98375003086403,
+          "occupied_degree_hours": 0.2131896734237671,
+          "occupied_violation_rate": 0.03802083333333334,
+          "peak_kw": 3.2909999966621397,
+          "overload_kwh": 0.0009999990463256836,
+          "team_return": -17.345187888736838,
+          "light_mismatch": 0.0
+        },
+        "mappo43": {
+          "cost": 14.114800098235719,
+          "energy_kwh": 22.416249822359532,
+          "occupied_degree_hours": 0.20961518287658693,
+          "occupied_violation_rate": 0.035937500000000004,
+          "peak_kw": 3.655999994277954,
+          "overload_kwh": 0.06549999713897706,
+          "team_return": -18.15880211824551,
+          "light_mismatch": 0.0
+        },
+        "mappo44": {
+          "cost": 18.12770011976827,
+          "energy_kwh": 30.121749581536278,
+          "occupied_degree_hours": 0.1975919485092163,
+          "occupied_violation_rate": 0.025,
+          "peak_kw": 3.7099999308586122,
+          "overload_kwh": 0.051499980688095096,
+          "team_return": -21.857446277257985,
+          "light_mismatch": 0.0
+        },
+        "ippo42": {
+          "cost": 15.17180022429675,
+          "energy_kwh": 25.24125006729737,
+          "occupied_degree_hours": 0.1884073257446289,
+          "occupied_violation_rate": 0.025520833333333333,
+          "peak_kw": 3.534999978542328,
+          "overload_kwh": 0.01674998998641968,
+          "team_return": -18.28779933331534,
+          "light_mismatch": 0.0
+        }
+      },
+      "changes": {
+        "thermostat": {
+          "cost": 27.94400057559833,
+          "energy_kwh": 32.48449923386797,
+          "occupied_degree_hours": 17.821644639968873,
+          "occupied_violation_rate": 0.37201871689996535,
+          "peak_kw": 5.872999835014343,
+          "overload_kwh": 1.2659997701644898,
+          "team_return": -132.3904929845594,
+          "light_mismatch": 0.0
+        },
+        "coordinated_rule": {
+          "cost": 29.884001338738017,
+          "energy_kwh": 34.9595000334084,
+          "occupied_degree_hours": 11.738960027694702,
+          "occupied_violation_rate": 0.3354139879553581,
+          "peak_kw": 3.7590001106262205,
+          "overload_kwh": 0.0,
+          "team_return": -89.17482851485256,
+          "light_mismatch": 0.0
+        },
+        "mappo42": {
+          "cost": 27.933400873607024,
+          "energy_kwh": 39.837000167835505,
+          "occupied_degree_hours": 0.5385651826858521,
+          "occupied_violation_rate": 0.037419035745152526,
+          "peak_kw": 3.496000111103058,
+          "overload_kwh": 0.0,
+          "team_return": -40.06574904469308,
+          "light_mismatch": 0.0
+        },
+        "mappo43": {
+          "cost": 29.012200640421362,
+          "energy_kwh": 41.10025026598014,
+          "occupied_degree_hours": 0.3321054697036743,
+          "occupied_violation_rate": 0.02512392972973441,
+          "peak_kw": 3.6010001420974733,
+          "overload_kwh": 0.0,
+          "team_return": -40.66745663669426,
+          "light_mismatch": 0.01666666666666667
+        },
+        "mappo44": {
+          "cost": 28.23880093274638,
+          "energy_kwh": 41.0804998183623,
+          "occupied_degree_hours": 0.39672677516937255,
+          "occupied_violation_rate": 0.039712690951651766,
+          "peak_kw": 3.4880000829696653,
+          "overload_kwh": 0.0007499992847442627,
+          "team_return": -39.7756039286498,
+          "light_mismatch": 0.0
+        },
+        "ippo42": {
+          "cost": 28.24210070837289,
+          "energy_kwh": 40.34550013877451,
+          "occupied_degree_hours": 0.4337085008621216,
+          "occupied_violation_rate": 0.03423644933312257,
+          "peak_kw": 3.411000061035156,
+          "overload_kwh": 0.0,
+          "team_return": -39.74553594337776,
+          "light_mismatch": 0.0
+        }
+      }
+    },
+    "note": "Historical environment only, not current model results."
+  }
+}

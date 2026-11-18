@@ -1,0 +1,45 @@
+{
+  "return": -31.961631122918334,
+  "scenarios": {
+    "default": {
+      "cost": 26.94000084574024,
+      "energy_kwh": 41.17666657237957,
+      "occupied_degree_hours": 0.0423132578531901,
+      "occupied_violation_rate": 0.039473684210526314,
+      "peak_kw": 4.0,
+      "overload_kwh": 0.0,
+      "team_return": -29.830622174156208,
+      "light_mismatch": 0.0
+    },
+    "eco": {
+      "cost": 25.62266744968171,
+      "energy_kwh": 39.901666486635804,
+      "occupied_degree_hours": 0.13393704096476236,
+      "occupied_violation_rate": 0.06140350877192982,
+      "peak_kw": 3.9066667556762695,
+      "overload_kwh": 0.0,
+      "team_return": -47.970028694874294,
+      "light_mismatch": 0.0
+    },
+    "sleep": {
+      "cost": 11.573333443297694,
+      "energy_kwh": 17.39333294114719,
+      "occupied_degree_hours": 0.15700006484985352,
+      "occupied_violation_rate": 0.041666666666666664,
+      "peak_kw": 3.4066665172576904,
+      "overload_kwh": 0.0,
+      "team_return": -13.986667749239132,
+      "light_mismatch": 0.0
+    },
+    "changes": {
+      "cost": 27.173334039282054,
+      "energy_kwh": 40.464999847734965,
+      "occupied_degree_hours": 0.28726927439371747,
+      "occupied_violation_rate": 0.04007048679945876,
+      "peak_kw": 3.7199997901916504,
+      "overload_kwh": 0.0,
+      "team_return": -36.0592058734037,
+      "light_mismatch": 0.0
+    }
+  }
+}

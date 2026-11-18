@@ -1,0 +1,11 @@
+/inspire/hdd/global_user/czxs253130357/XJTU_MARL/.venv/lib/python3.13/site-packages/torchrl/modules/mcts/scores.py:574: FutureWarning: functools.partial will be a method descriptor in future Python versions; wrap it in enum.member() if you want to preserve the old behavior
+  PUCT = functools.partial(PUCTScore, c=5)  # AlphaGo default value
+/inspire/hdd/global_user/czxs253130357/XJTU_MARL/.venv/lib/python3.13/site-packages/torchrl/modules/mcts/scores.py:575: FutureWarning: functools.partial will be a method descriptor in future Python versions; wrap it in enum.member() if you want to preserve the old behavior
+  UCB = functools.partial(UCBScore, c=math.sqrt(2))  # default from Auer et al. 2002
+/inspire/hdd/global_user/czxs253130357/XJTU_MARL/.venv/lib/python3.13/site-packages/torchrl/modules/mcts/scores.py:576: FutureWarning: functools.partial will be a method descriptor in future Python versions; wrap it in enum.member() if you want to preserve the old behavior
+  UCB1_TUNED = functools.partial(
+/inspire/hdd/global_user/czxs253130357/XJTU_MARL/.venv/lib/python3.13/site-packages/torchrl/modules/mcts/scores.py:579: FutureWarning: functools.partial will be a method descriptor in future Python versions; wrap it in enum.member() if you want to preserve the old behavior
+  EXP3 = functools.partial(EXP3Score, gamma=0.1)
+/inspire/hdd/global_user/czxs253130357/XJTU_MARL/.venv/lib/python3.13/site-packages/torchrl/collectors/_base.py:1045: DeprecationWarning: SyncDataCollector has been deprecated and will be removed in v0.13. Please use Collector instead.
+  warnings.warn(
+{"passed": true, "comparisons": 3072, "checkpoint": "results/layout/mappo42/best_actor.pt"}

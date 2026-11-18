@@ -1,0 +1,162 @@
+{
+  "assets/architecture_study.json": {
+    "bytes": 163779,
+    "sha256": "51339029b0d37a4ba8be5870713d603687af24b8fb96b4a5cb145f7d6c7b0730"
+  },
+  "assets/capacity_control.json": {
+    "bytes": 9438896,
+    "sha256": "3f8dc92e63412cfdfd6092d4ecf85eee0afb92878abd81f682a52f68c5b4f928"
+  },
+  "assets/capacity_metrics.json": {
+    "bytes": 12594733,
+    "sha256": "f101699bfae6ff5359064804b3bc0bfe169e4395a80eee692bf85033ae0cd16f"
+  },
+  "assets/controller_latency.json": {
+    "bytes": 754,
+    "sha256": "9bffd9cb237494e29d7eb1e7a3125029b893ebfa007e98dfcab24363985add71"
+  },
+  "assets/final_study.json": {
+    "bytes": 18787035,
+    "sha256": "10c7f53cd3663d5827e85020d344594de8b7bc54755e17a68b55c596b9b32498"
+  },
+  "assets/lookahead32_validation.json": {
+    "bytes": 1382,
+    "sha256": "64ee37e293f98f9f25fc774095c08401e4e89e5e69f7196dc80b2a0464441e79"
+  },
+  "assets/lookahead_selection.json": {
+    "bytes": 5189,
+    "sha256": "64638ca5b6849b1f5f72ae5631e0151f300ff60babf18d7d90bce53d98168eae"
+  },
+  "assets/lookahead_study.json": {
+    "bytes": 9408292,
+    "sha256": "486ff0772dc748aeb4503d583252eb5ad2c0f69891a121805c60a6a418c02deb"
+  },
+  "assets/metrics.json": {
+    "bytes": 18832301,
+    "sha256": "b741948d0ed4c245af674e614402024f4c67293d9b185626f3bd59f636f595f9"
+  },
+  "assets/mpc4h_study.json": {
+    "bytes": 3124941,
+    "sha256": "d136f88147c010d1ef307201a577425bab31ef7c1f648ff0eb706dd1ba79bb9f"
+  },
+  "assets/tables/daily.csv": {
+    "bytes": 339870,
+    "sha256": "b4726e047afce9ab9e2eeb7391436d5ef0a521ca43b8e1c7dbceae04e2233146"
+  },
+  "assets/tables/summary.csv": {
+    "bytes": 17407,
+    "sha256": "312f71351518ebae75af40916141ad317d96b81600a9e47bf520b936f93a2889"
+  },
+  "results/capacity/mappo256_42/best_actor.pt": {
+    "bytes": 580215,
+    "sha256": "afd7a0c1ebc92468338f1f34af85f4324625868862b1da48337e43aacde03f18"
+  },
+  "results/capacity/mappo256_42/run_manifest.json": {
+    "bytes": 414,
+    "sha256": "becc14f870c4d20b83e90ee52c796eccefba301a96ce5f1515aecebb34fd7c7a"
+  },
+  "results/capacity/mappo256_42/throughput.json": {
+    "bytes": 92,
+    "sha256": "d808f4c09a29d093fe3b52ee8cb28fefd2900d8a638c87e0fd710a76b37cb8fc"
+  },
+  "results/capacity/mappo256_42/validation.json": {
+    "bytes": 7139,
+    "sha256": "102787d9d8fb735ed0c0ccb4dccf0c44366bebd0ff73d30ebdd41164d1cb43af"
+  },
+  "results/capacity/mappo512_42/best_actor.pt": {
+    "bytes": 2204279,
+    "sha256": "e2e3794d16a97fb54ef959e3d846ad4a5f53774147c6dd9bbbe90395be17ab39"
+  },
+  "results/capacity/mappo512_42/run_manifest.json": {
+    "bytes": 414,
+    "sha256": "56eda9977265e704496520faf2be6d0f48ddac560b412e48b773906c190e9dad"
+  },
+  "results/capacity/mappo512_42/throughput.json": {
+    "bytes": 92,
+    "sha256": "3e23d00c4607743210b2a9c70bef8cf8d05e710d16695519be6f0416f7e29e2e"
+  },
+  "results/capacity/mappo512_42/validation.json": {
+    "bytes": 7119,
+    "sha256": "6ac29d5a415e63644792e7c032e376560d39070f9df6c45b4f0c7b4f00db93b3"
+  },
+  "results/capacity/mappo512_43/best_actor.pt": {
+    "bytes": 2204279,
+    "sha256": "9f6741df158456e4c37001dae66a7f75383e698c48ad1622a9d30a56ce546de5"
+  },
+  "results/capacity/mappo512_43/run_manifest.json": {
+    "bytes": 414,
+    "sha256": "490406110b16392c5ea4528962da85d2f05ffa69cf4a074238fec74e970960e6"
+  },
+  "results/capacity/mappo512_43/throughput.json": {
+    "bytes": 92,
+    "sha256": "348d21123123b6a01c3d99942188cb2dfe6a5ea1a2af0d82887cd01737eecf18"
+  },
+  "results/capacity/mappo512_43/validation.json": {
+    "bytes": 7127,
+    "sha256": "f01df1433b179ea3550ff24a31c9e6a1d6e8a17553b06eb979ec55e3fa7c34d9"
+  },
+  "results/layout/ippo42/best_actor.pt": {
+    "bytes": 580215,
+    "sha256": "48d9a7bac0422df0a41c3a34946a379072644d35b991983ad08960d5264759e8"
+  },
+  "results/layout/ippo42/run_manifest.json": {
+    "bytes": 406,
+    "sha256": "0163a68378c062d98cceeee62a890ca472758011eab307eced1439bd1177100b"
+  },
+  "results/layout/ippo42/throughput.json": {
+    "bytes": 92,
+    "sha256": "610e8a37c698aaa5448d0aaa013530689649c46288029e929ce69680a2f04186"
+  },
+  "results/layout/ippo42/validation.json": {
+    "bytes": 4694,
+    "sha256": "3f96144a72a893c749715f8b4e0f1f6ace5731e008a18ee95c94973d583ba13f"
+  },
+  "results/layout/mappo42/best_actor.pt": {
+    "bytes": 580215,
+    "sha256": "e92cedbc567dfb625f6580d1c8eb67b15184ceebaabe3a0f6a5f421d647a99f3"
+  },
+  "results/layout/mappo42/run_manifest.json": {
+    "bytes": 408,
+    "sha256": "3932434edd5e9aa04b8d38d029a6681e94a1cbe73f226a81493b5ef302f0ce17"
+  },
+  "results/layout/mappo42/throughput.json": {
+    "bytes": 91,
+    "sha256": "523c0ea5bf019869946a955f0656e53c235ae714f84f65ca676ac96925fe520a"
+  },
+  "results/layout/mappo42/validation.json": {
+    "bytes": 4706,
+    "sha256": "5b64c469596e398e29c927dc70359c4c9d6034810b181eff475b8163ed32beda"
+  },
+  "results/layout/mappo43/best_actor.pt": {
+    "bytes": 580215,
+    "sha256": "2a0b2e4ece29f5743a36483f9f56129e5dc7d495a6d36663105ee3f5ddcd7401"
+  },
+  "results/layout/mappo43/run_manifest.json": {
+    "bytes": 408,
+    "sha256": "9d295845be38ee209cff8ee8c8fd91be7de4221a6de8d33a8d2ada09c7d211fd"
+  },
+  "results/layout/mappo43/throughput.json": {
+    "bytes": 93,
+    "sha256": "ac059067b90169c2e582d67cffed68f1b333f795c621602e09e0e51cedb14d64"
+  },
+  "results/layout/mappo43/validation.json": {
+    "bytes": 4701,
+    "sha256": "2f1a5e9c5f3a7c3876a99939175e9ca0f581bd7b980a9f0cca73683fcf083cb8"
+  },
+  "results/layout/mappo44/best_actor.pt": {
+    "bytes": 580215,
+    "sha256": "f50233c3288bfcb1d6609b0c076ead3ce684ab64c5de1d373fc019e7eacf3388"
+  },
+  "results/layout/mappo44/run_manifest.json": {
+    "bytes": 408,
+    "sha256": "d164d93366ae1465615047c4af6057fe82ee2a2d44bb89f14349917eacab77dc"
+  },
+  "results/layout/mappo44/throughput.json": {
+    "bytes": 92,
+    "sha256": "af327c83c73fc67645d2686a07758a4468d2e671cf602f4d65f757dba1ef1780"
+  },
+  "results/layout/mappo44/validation.json": {
+    "bytes": 4702,
+    "sha256": "48e429d9eb81c0418c6a0984b1cc22d597e81302856414d57ac0eab4a1a97835"
+  }
+}
