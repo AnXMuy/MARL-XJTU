@@ -1,0 +1,3 @@
+# Progress
+2026-11-19: Inspected repository, preserved existing deletions, created feat/traffic-marl-sumo. Started environment investigation. No traffic results exist yet.
+2026-11-19: Implemented initial traffic-marl package (network/demand, safe signal state machine, controllers, metrics, MAPPO/IPPO/IDQN, evaluator/matrix, demo shell, report template). Unit tests 7 passed; compileall and PPO tensor-shape check passed. SUMO PyPI wheel repeatedly stalled <40 KB/s and was stopped; no SUMO smoke, training, browser test, or traffic result exists. PyTorch 2.14.0+cu130 / CUDA 13.0, GPU RTX 4090. See traffic-marl/docs/STATUS.md.

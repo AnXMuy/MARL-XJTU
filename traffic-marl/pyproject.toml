@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "xjtu-traffic-marl"
+version = "0.1.0"
+description = "Reproducible SUMO multi-agent traffic signal control"
+requires-python = ">=3.11"
+dependencies = ["eclipse-sumo==1.25.0", "traci==1.25.0", "numpy", "torch", "gymnasium>=1.2,<2", "pandas", "matplotlib", "streamlit>=1.50,<2", "pyyaml"]
+[project.optional-dependencies]
+test = ["pytest>=8"]
+[tool.setuptools.packages.find]
+where = ["src"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]

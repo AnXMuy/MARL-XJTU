@@ -1,0 +1,4 @@
+# Initial compatibility intent; generate a complete platform lock with `python -m pip freeze` after SUMO wheel installation.
+eclipse-sumo==1.25.0
+traci==1.25.0
+# Actual local validation was Python 3.13.13, torch 2.14.0+cu130 (CUDA runtime 13.0).

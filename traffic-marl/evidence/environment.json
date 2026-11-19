@@ -1,0 +1,16 @@
+{
+  "checked_at_utc": "2026-11-19",
+  "python_default": "3.13.13",
+  "torch": "2.14.0+cu130",
+  "torch_cuda_runtime": "13.0",
+  "torch_cuda_available": true,
+  "gpu": "NVIDIA GeForce RTX 4090, 49140 MiB",
+  "driver": "595.71.05",
+  "system_sumo_cli": null,
+  "sumo_wheel": "eclipse-sumo==1.25.0",
+  "download_status": "not installed: PyPI wheel download remained below 40 KB/s and was stopped after repeated attempts",
+  "unit_tests": "7 passed",
+  "compileall": "passed",
+  "sumo_smoke": "not run; SUMO CLI unavailable",
+  "training": "not run; no SUMO experiments exist"
+}
