@@ -21,7 +21,10 @@ class IDQN(nn.Module):
         actions=[]
         for net,x,m in zip(self.nets,obs,mask):
             if random.random()<epsilon: a=int(np.random.choice(np.flatnonzero(m)))
-            else: a=int(net(torch.tensor(x)).masked_fill(~torch.tensor(m),-1e9).argmax())
+            else:
+                device=next(net.parameters()).device
+                a=int(net(torch.as_tensor(x,dtype=torch.float32,device=device)).masked_fill(
+                    ~torch.as_tensor(m,dtype=torch.bool,device=device),-1e9).argmax().cpu())
             actions.append(a)
         return np.array(actions)
     def store(self,obs,actions,rewards,next_obs,next_mask,terminal):
@@ -31,10 +34,13 @@ class IDQN(nn.Module):
         for net,target,opt,b in zip(self.nets,self.targets,self.optimizers,self.buffers):
             if len(b)<64: continue
             o,a,r,no,nm,done=map(np.array,zip(*random.sample(b,64)))
-            q=net(torch.tensor(o)).gather(1,torch.tensor(a)[:,None]).squeeze(1)
+            device=next(net.parameters()).device
+            q=net(torch.as_tensor(o,dtype=torch.float32,device=device)).gather(
+                1,torch.as_tensor(a,dtype=torch.long,device=device)[:,None]).squeeze(1)
             with torch.no_grad():
-                nq=target(torch.tensor(no)).masked_fill(~torch.tensor(nm),-1e9).max(1).values
-                y=torch.tensor(r,dtype=torch.float32)+.99*nq*(1-torch.tensor(done,dtype=torch.float32))
+                nq=target(torch.as_tensor(no,dtype=torch.float32,device=device)).masked_fill(
+                    ~torch.as_tensor(nm,dtype=torch.bool,device=device),-1e9).max(1).values
+                y=torch.as_tensor(r,dtype=torch.float32,device=device)+.99*nq*(1-torch.as_tensor(done,dtype=torch.float32,device=device))
             loss=nn.functional.smooth_l1_loss(q,y)
             opt.zero_grad(); loss.backward(); nn.utils.clip_grad_norm_(net.parameters(),.5); opt.step()
             losses.append(loss.item())

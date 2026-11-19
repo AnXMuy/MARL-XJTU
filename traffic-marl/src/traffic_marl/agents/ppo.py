@@ -25,9 +25,10 @@ class PPO(nn.Module):
         return Categorical(logits=self.logits(obs).masked_fill(~mask,-1e9))
     @torch.no_grad()
     def act(self,obs,mask,deterministic=False):
-        x=torch.as_tensor(obs,dtype=torch.float32); m=torch.as_tensor(mask,dtype=torch.bool)
+        device=next(self.parameters()).device
+        x=torch.as_tensor(obs,dtype=torch.float32,device=device); m=torch.as_tensor(mask,dtype=torch.bool,device=device)
         dist=self.distribution(x,m); a=dist.logits.argmax(-1) if deterministic else dist.sample()
-        return a.numpy(),dist.log_prob(a).numpy(),self.values(x).numpy()
+        return a.cpu().numpy(),dist.log_prob(a).cpu().numpy(),self.values(x).cpu().numpy()
 
 def gae(rewards,values,bootstrap,gamma=.99,lam=.95):
     adv=np.zeros_like(rewards); last=np.zeros_like(bootstrap); next_value=bootstrap
@@ -38,9 +39,10 @@ def gae(rewards,values,bootstrap,gamma=.99,lam=.95):
 
 def update(model,optimizer,rollout,epochs=4,clip=.2,entropy_coef=.01,batch=64):
     obs,mask,actions,logp,returns,adv=rollout
-    obs=torch.as_tensor(obs,dtype=torch.float32); mask=torch.as_tensor(mask,dtype=torch.bool)
-    actions=torch.as_tensor(actions,dtype=torch.long); old=torch.as_tensor(logp,dtype=torch.float32)
-    ret=torch.as_tensor(returns,dtype=torch.float32); adv=torch.as_tensor(adv,dtype=torch.float32)
+    device=next(model.parameters()).device
+    obs=torch.as_tensor(obs,dtype=torch.float32,device=device); mask=torch.as_tensor(mask,dtype=torch.bool,device=device)
+    actions=torch.as_tensor(actions,dtype=torch.long,device=device); old=torch.as_tensor(logp,dtype=torch.float32,device=device)
+    ret=torch.as_tensor(returns,dtype=torch.float32,device=device); adv=torch.as_tensor(adv,dtype=torch.float32,device=device)
     adv=(adv-adv.mean())/(adv.std(unbiased=False)+1e-8); stats=[]
     # Mini-batch whole timesteps so the MAPPO critic sees the full joint observation.
     for _ in range(epochs):

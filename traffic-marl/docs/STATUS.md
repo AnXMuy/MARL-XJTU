@@ -16,9 +16,10 @@
 - Streamlit starts on port 8765 and its health endpoint returns `ok`.
 - Playwright browser check loaded the demo, clicked Run SUMO on 1x1, and found KPI charts with no page errors.
 - One-episode MAPPO, IPPO and IDQN training plus MAPPO checkpoint inference all complete. A 3x3, 120-decision MAPPO sanity run has 1,080 agent steps; its one held-out run is poor (queue mean 165.7 vs 19.7 Max-Pressure, 153 vs 427 arrivals). This is a negative smoke result, not an efficacy estimate.
+- Formal training CLI defaults to CUDA and rejects unavailable CUDA; PPO and IDQN updates move batches to the model device. GPU unit test passed and a CUDA training/resume smoke records RTX 4090 in checkpoint metadata.
 
 ## Not verified or not done
-- No multi-seed study, confidence interval, or supported performance claim exists; training sanity runs are far below a meaningful budget.
+- The formal five-seed 100-episode sweep and paired 20-demand-seed study are not complete yet; no supported performance claim exists.
 - Browser replay slider/control and replay-on browser rendering have not been exercised; replay export itself was generated (600 frames, about 11 MB).
 - Only straight-through single-lane traffic is modeled; turns, pedestrians, calibrated city traffic, route guidance and reversible lanes are pending.
 - SUMO Python wheel installs CLI tools under `.venv/bin`; call commands through `traffic-marl/scripts/sumo_env.sh` or add `.venv/bin` to PATH.

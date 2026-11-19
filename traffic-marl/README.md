@@ -29,15 +29,23 @@ Each run saves its exact generated network/demand inputs, config, provenance, pe
 ## Train and evaluate
 
 ```bash
-python traffic-marl/scripts/train.py --algorithm mappo --seed 0 --episodes 100 --output traffic-marl/runs/mappo0
+PATH="$PWD/.venv/bin:$PATH" python traffic-marl/scripts/train.py --algorithm mappo --seed 0 --episodes 100 --device cuda --output traffic-marl/runs/mappo0
 python traffic-marl/scripts/train.py --algorithm ippo --seed 0 --episodes 100 --output traffic-marl/runs/ippo0
 python traffic-marl/scripts/train.py --algorithm idqn --seed 0 --episodes 100 --output traffic-marl/runs/idqn0
 python traffic-marl/scripts/evaluate.py --policy mappo --checkpoint traffic-marl/runs/mappo0/best.pt --output traffic-marl/runs/mappo-test
 ```
 
-Checkpoints carry observation/safety config and training/validation/test seed metadata. Validation seeds select checkpoints; test seeds are held for final evaluation. Initial schedules use five training seeds as course-scale minimum, with 20 demand seeds per scenario. Increase with resources, report every seed and failed episode.
+Formal training defaults to CUDA and refuses to silently fall back to CPU. Use `--resume` to continue the latest episode checkpoint after interruption. Checkpoints carry observation/safety config and training/validation/test seed metadata. Validation seeds select checkpoints; test seeds are held for final evaluation. Initial schedules use five training seeds as course-scale minimum, with 20 demand seeds per scenario. Increase with resources, report every seed and failed episode.
 
 Run paired matrices with `scripts/run_matrix.py`. For learned methods provide one checkpoint per training seed, for example `--checkpoint-dir mappo:0=traffic-marl/runs/mappo0/best.pt --checkpoint-dir mappo:1=traffic-marl/runs/mappo1/best.pt`. It saves raw episodes, mean/std and bootstrap confidence intervals plus paired differences against Fixed and Max-Pressure. Start with `--limit 4` to check throughput and schemas. Every strategy on a demand condition receives the same seed and input hash; repeated training seeds use their own checkpoint rather than duplicated weights.
+
+The formal five-seed training sweep is resumable and CUDA-only:
+
+```bash
+PATH="$PWD/.venv/bin:$PATH" python traffic-marl/scripts/run_formal_study.py --episodes 100 --seeds 5 --demand-seeds 20
+```
+
+The runner trains MAPPO/IPPO/IDQN with demand randomization, resumes `latest.pt` if interrupted, then runs paired 3600-second 3x3 evaluation. It writes its exact commands and status under `runs/formal/formal_manifest.json`.
 
 ## Demo
 

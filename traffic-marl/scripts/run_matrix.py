@@ -22,14 +22,24 @@ def main():
         if ':' not in name: raise ValueError('learned checkpoint names must be algorithm:training_seed=path')
         algorithm,seed=name.rsplit(':',1); checkpoints[(algorithm,int(seed))]=path
     policies=['fixed','actuated','max_pressure','green_wave']+sorted({algorithm for algorithm,_ in checkpoints})
-    jobs=[]
-    for train_seed,demand_seed,rate,scenario,policy in itertools.product(
-            range(args.seeds),range(args.demand_seeds),[150,300,600],['uniform','morning','evening','pulse'],policies):
-        if policy in ('fixed','actuated','max_pressure','green_wave') or (policy,train_seed) in checkpoints:
-            jobs.append((train_seed,demand_seed,rate,scenario,policy))
+    conditions=list(itertools.product(range(args.demand_seeds),[150,300,600],['uniform','morning','evening','pulse']))
+    jobs=[(0,demand_seed,rate,scenario,policy)
+          for demand_seed,rate,scenario in conditions
+          for policy in ('fixed','actuated','max_pressure','green_wave')]
+    jobs += [(train_seed,demand_seed,rate,scenario,policy)
+          for train_seed in range(args.seeds)
+          for demand_seed,rate,scenario in conditions
+          for policy in sorted({alg for alg,_ in checkpoints})
+          if (policy,train_seed) in checkpoints]
     if args.limit: jobs=jobs[:args.limit]
-    rows=[]
+    episodes_path=out/'episodes.csv'
+    rows=pd.read_csv(episodes_path).to_dict('records') if episodes_path.exists() else []
+    completed={(str(r.get('policy')),int(r.get('train_seed',0)),int(r.get('demand_seed',-1)),
+                int(r.get('rate',-1)),str(r.get('scenario'))) for r in rows
+               if pd.isna(r.get('failure')) or str(r.get('failure',''))==''}
     for train_seed,demand_seed,rate,scenario,policy in jobs:
+        key=(policy,train_seed,demand_seed,rate,scenario)
+        if key in completed: continue
         cfg=Config(size=args.size,duration=args.duration,warmup=min(300,args.duration//5),seed=10000+demand_seed,rate=rate,scenario=scenario)
         # Training seed is an explicit block in the schedule for learned policies, not a confounded demand seed.
         folder=out/f'train_{train_seed}'/f'demand_{demand_seed}_{rate}_{scenario}'/policy
@@ -42,12 +52,13 @@ def main():
                  'seed':cfg.seed,'failure':f'{type(e).__name__}: {e}'}
             save_json(folder/'failure.json',{'error':row['failure'],'traceback':traceback.format_exc(),'config':cfg.dict()})
         rows.append(row)
-        pd.DataFrame(rows).to_csv(out/'episodes.csv',index=False)
+        pd.DataFrame(rows).to_csv(episodes_path,index=False)
         print(json.dumps(row),flush=True)
     df=pd.DataFrame(rows)
     if len(df):
         df['pair']=df['demand_seed'].astype(str)+'_'+df['rate'].astype(str)+'_'+df['scenario'].astype(str)
-        metrics=['travel_time_mean','delay_mean','waiting_mean','queue_mean','throughput_per_hour','completion_rate','teleports']
+        metrics=['travel_time_mean','travel_time_p95','delay_mean','waiting_mean','waiting_p95','waiting_gini','waiting_jain',
+                 'queue_mean','queue_p95','max_lane_queue','throughput_per_hour','completion_rate','teleports','spillback_lane_seconds','stops_mean','speed_mean']
         tables=[]
         for keys,g in df[df.failure.fillna('')==''].groupby(['policy','rate','scenario']):
             rec=dict(zip(['policy','rate','scenario'],keys)); rec['n']=len(g)
@@ -62,13 +73,15 @@ def main():
         # Paired difference table over exact demand keys vs fixed and max pressure.
         diffs=[]
         valid=df[df.failure.fillna('')=='']
+        demand_keys=['demand_seed','rate','scenario']
         for metric in metrics:
-            wide=valid.pivot_table(index=['train_seed','demand_seed','rate','scenario'],columns='policy',values=metric,aggfunc='first')
-            for policy in policies:
-                if policy in ('fixed','max_pressure') or policy not in wide: continue
+            base=valid[valid.policy.isin(['fixed','max_pressure'])][demand_keys+['policy',metric]]
+            for policy in sorted({alg for alg,_ in checkpoints}):
+                learned=valid[valid.policy==policy]
                 for baseline in ('fixed','max_pressure'):
-                    if baseline not in wide: continue
-                    x=(wide[policy]-wide[baseline]).dropna().to_numpy()
+                    reference=base[base.policy==baseline][demand_keys+[metric]]
+                    paired=learned.merge(reference,on=demand_keys,suffixes=('_learned','_baseline'))
+                    x=(paired[f'{metric}_learned']-paired[f'{metric}_baseline']).dropna().to_numpy()
                     if not len(x): continue
                     rng=np.random.default_rng(17); boot=np.array([rng.choice(x,len(x),replace=True).mean() for _ in range(2000)])
                     diffs.append({'metric':metric,'policy':policy,'baseline':baseline,'n_pairs':len(x),
