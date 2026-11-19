@@ -51,11 +51,13 @@ if st.session_state.get('result'):
     with c2: st.subheader('累计完成车辆'); st.line_chart(series.set_index('time')['arrived'])
     if (path/'replay.json').exists():
         data=json.loads((path/'replay.json').read_text()); frame=st.slider('回放时间帧',0,len(data['frames'])-1,0); f=data['frames'][frame]
-        edges=[{'path':[[x,y] for x,y in shape]} for shape in data['edges'].values()]
-        vehicles=[{'position':list(v['xy']),'speed':v['speed']} for v in f['vehicles'].values()]
+        project=lambda xy:[108.9+xy[0]/111000,34.2+xy[1]/111000]
+        edges=[{'path':[project(xy) for xy in shape]} for shape in data['edges'].values()]
+        vehicles=[{'position':project(v['xy']),'speed':v['speed']} for v in f['vehicles'].values()]
         layers=[pdk.Layer('PathLayer',edges,get_path='path',get_color=[85,98,110],width_scale=2,width_min_pixels=2),
                 pdk.Layer('ScatterplotLayer',vehicles,get_position='position',get_fill_color='[240, 90, 45, 220]',get_radius=7,radius_min_pixels=4)]
-        xs=[xy[0] for xy in data['positions'].values()]; ys=[xy[1] for xy in data['positions'].values()]
-        st.pydeck_chart(pdk.Deck(layers=layers,initial_view_state=pdk.ViewState(latitude=sum(ys)/len(ys),longitude=sum(xs)/len(xs),zoom=12,pitch=0)))
+        xs=[108.9+xy[0]/111000 for xy in data['positions'].values()]
+        ys=[34.2+xy[1]/111000 for xy in data['positions'].values()]
+        st.pydeck_chart(pdk.Deck(layers=layers,initial_view_state=pdk.ViewState(latitude=sum(ys)/len(ys),longitude=sum(xs)/len(xs),zoom=14,pitch=0)))
     for name in ('summary.json','timeseries.csv','vehicles.csv','executed_actions.csv','replay.json'):
         if (path/name).exists(): st.download_button(f'导出 {name}',(path/name).read_bytes(),file_name=name)

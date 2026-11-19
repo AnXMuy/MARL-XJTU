@@ -1,0 +1,10 @@
+{
+  "browser": "Playwright Chromium headless",
+  "url": "http://localhost:8766",
+  "title": "XJTU Traffic MARL",
+  "h1": "城市交通信号协同控制",
+  "action": "selected 1x1 smoke and clicked Run SUMO",
+  "visible_metrics": ["平均旅行时间 (s)", "平均等待 (s)", "平均队列", "完成率", "Teleport"],
+  "browser_page_errors": [],
+  "screenshot": "captured locally at /tmp/traffic-demo-verified.png"
+}

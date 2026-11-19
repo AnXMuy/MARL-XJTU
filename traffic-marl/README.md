@@ -9,13 +9,13 @@ Requires Python 3.11+ and a working SUMO CLI (`sumo`, `netconvert`). Use the sup
 ```bash
 python -m venv .venv
 . .venv/bin/activate
-python -m pip install -e '.[test]'
-python -m pip freeze > requirements.lock
-sumo --version
-python -m pytest traffic-marl/tests
+python -m pip install -e 'traffic-marl[test]'
+python -m pip freeze > traffic-marl/requirements.lock
+PATH="$PWD/.venv/bin:$PATH" sumo --version
+PATH="$PWD/.venv/bin:$PATH" python -m pytest traffic-marl/tests
 ```
 
-`SUMO_HOME` is not required when using the PyPI wheel. The CLI must be on PATH.
+For this environment, install from the fast Tencent mirror with `python -m pip install -i https://mirrors.cloud.tencent.com/pypi/simple -e 'traffic-marl[test]'`. The SUMO PyPI wheel places CLI tools in `.venv/bin`; use `PATH="$PWD/.venv/bin:$PATH"` for commands or call them through `traffic-marl/scripts/sumo_env.sh`. `SUMO_HOME` is not required with the PyPI wheel.
 
 ## Smoke and baselines
 
@@ -37,7 +37,7 @@ python traffic-marl/scripts/evaluate.py --policy mappo --checkpoint traffic-marl
 
 Checkpoints carry observation/safety config and training/validation/test seed metadata. Validation seeds select checkpoints; test seeds are held for final evaluation. Initial schedules use five training seeds as course-scale minimum, with 20 demand seeds per scenario. Increase with resources, report every seed and failed episode.
 
-Run paired matrices with `scripts/run_matrix.py`. It saves raw episodes, mean/std and bootstrap confidence intervals plus paired differences against Fixed and Max-Pressure. Start with `--limit 4` to check throughput and schemas. Every strategy on a demand condition receives the same seed and input hash.
+Run paired matrices with `scripts/run_matrix.py`. For learned methods provide one checkpoint per training seed, for example `--checkpoint-dir mappo:0=traffic-marl/runs/mappo0/best.pt --checkpoint-dir mappo:1=traffic-marl/runs/mappo1/best.pt`. It saves raw episodes, mean/std and bootstrap confidence intervals plus paired differences against Fixed and Max-Pressure. Start with `--limit 4` to check throughput and schemas. Every strategy on a demand condition receives the same seed and input hash; repeated training seeds use their own checkpoint rather than duplicated weights.
 
 ## Demo
 
@@ -45,8 +45,8 @@ Run paired matrices with `scripts/run_matrix.py`. It saves raw episodes, mean/st
 streamlit run traffic-marl/src/traffic_marl/demo/app.py
 ```
 
-The page runs SUMO synchronously and shows queues, completed vehicles, KPIs, downloads and optional recorded replay. Learnable policies appear in the selector only after a checkpoint is added in a future UI update; the current visible set contains rules only. Large episodes block the Streamlit worker; stop the process from the server if needed.
+The page runs SUMO synchronously and shows queues, completed vehicles, KPIs, downloads and optional recorded replay. Trained checkpoints in `runs/*/best.pt` are discovered automatically and their algorithm name appears in the selector. Large episodes block the Streamlit worker; stop the process from the server if needed.
 
 ## Status
 
-No performance claims have been made. See `evidence/` for environment snapshots, actual SUMO smoke results, test logs, and reproducible limitations. Results and figures must be regenerated from raw episode CSV.
+Only smoke and one-episode algorithm checks have been run so far. The 3x3 MAPPO sanity checkpoint performed poorly on its one held-out demand seed and must not be treated as evidence of effectiveness. See `evidence/` for environment snapshots, smoke results, test logs, and limitations. Results and figures must be regenerated from raw episode CSV.

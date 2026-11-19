@@ -18,9 +18,15 @@ def main():
     args=p.parse_args(); out=Path(args.output); out.mkdir(parents=True,exist_ok=True)
     checkpoints={}
     for entry in args.checkpoint_dir:
-        name,path=entry.split('=',1); checkpoints[name]=path
-    policies=['fixed','actuated','max_pressure','green_wave']+list(checkpoints)
-    jobs=list(itertools.product(range(args.seeds),range(args.demand_seeds),[150,300,600],['uniform','morning','evening','pulse'],policies))
+        name,path=entry.split('=',1)
+        if ':' not in name: raise ValueError('learned checkpoint names must be algorithm:training_seed=path')
+        algorithm,seed=name.rsplit(':',1); checkpoints[(algorithm,int(seed))]=path
+    policies=['fixed','actuated','max_pressure','green_wave']+sorted({algorithm for algorithm,_ in checkpoints})
+    jobs=[]
+    for train_seed,demand_seed,rate,scenario,policy in itertools.product(
+            range(args.seeds),range(args.demand_seeds),[150,300,600],['uniform','morning','evening','pulse'],policies):
+        if policy in ('fixed','actuated','max_pressure','green_wave') or (policy,train_seed) in checkpoints:
+            jobs.append((train_seed,demand_seed,rate,scenario,policy))
     if args.limit: jobs=jobs[:args.limit]
     rows=[]
     for train_seed,demand_seed,rate,scenario,policy in jobs:
@@ -28,7 +34,8 @@ def main():
         # Training seed is an explicit block in the schedule for learned policies, not a confounded demand seed.
         folder=out/f'train_{train_seed}'/f'demand_{demand_seed}_{rate}_{scenario}'/policy
         try:
-            summary=run(cfg,policy,str(folder),checkpoints.get(policy))
+            checkpoint=checkpoints.get((policy,train_seed))
+            summary=run(cfg,policy,str(folder),checkpoint)
             row={**summary,'train_seed':train_seed,'demand_seed':demand_seed,'failure':''}
         except Exception as e:
             row={'policy':policy,'train_seed':train_seed,'demand_seed':demand_seed,'rate':rate,'scenario':scenario,

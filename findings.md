@@ -7,3 +7,9 @@
 - SUMO 1.25 wheel metadata reachable, but repeated 105.8 MB download stalled at ~30-40 KB/s; stopped after two attempts. No system SUMO executable.
 - `traffic-marl/tests`: 7 passed. Python compileall succeeds. PPO actor/value shapes checked.
 - No traffic simulation, learned checkpoint, or empirical performance data exists as of this update.
+- Tencent mirror resolved download: SUMO 1.25.0 wheel SHA256 57bee7cd...; SUMO/netconvert CLI live under `.venv/bin`, not global PATH.
+- 1x1 1000s SUMO run: 320 scheduled/departed, 299 arrived, 21 remain, 0 teleports and invalid phase actions.
+- 3x3 600s matched smoke across fixed/actuated/max-pressure: all 600 scheduled, same demand SHA256, repeat pressure deterministic. Sample values in `traffic-marl/evidence/smoke_results.json`; no significance claims.
+- Browser test in Chromium exercised 1x1 run and rendered five KPIs with no page errors. Replay export is 600 frames (~11 MB).
+- 10 tests pass (including SUMO integration). PPO update now batches whole timesteps to preserve global critic state.
+- One-episode 3x3 MAPPO sanity checkpoint performed poorly: one held-out demand has mean queue 165.7 and 153 arrivals versus Max-Pressure 19.7 and 427. No efficacy claim; train budget is insufficient and this is recorded as a failure.

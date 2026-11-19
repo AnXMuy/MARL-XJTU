@@ -1,0 +1,30 @@
+{
+  "sumo": "1.25.0",
+  "single_intersection": {
+    "config": "configs/smoke.json",
+    "policy": "max_pressure",
+    "scheduled": 320,
+    "departed": 320,
+    "arrived_at_1000s": 299,
+    "remaining": 21,
+    "completion_rate": 0.934375,
+    "travel_time_mean_completed_cohort_s": 57.6555555556,
+    "queue_mean_post_warmup": 1.5877777778,
+    "wall_seconds": 3.7187,
+    "teleports": 0,
+    "illegal_requests": 0,
+    "demand_sha256": "a758ed4367d42c4f3df1e0b4bf4e68b8884528b91f6c3685dc0eeb7fd179e84d"
+  },
+  "grid_3x3_quick": {
+    "config": "configs/quick.json",
+    "scheduled": 600,
+    "demand_sha256_all_controllers": "9d610fb674e27f4531e124411c504496b11606f83983253a76a6bb53427ce5d9",
+    "repeat_max_pressure_identical_demand_and_metrics": true,
+    "teleports_all": 0,
+    "illegal_requests_all": 0,
+    "fixed": {"arrived": 445, "queue_mean": 46.348148, "travel_time_mean": 162.125668, "wall_seconds": 12.1691},
+    "actuated": {"arrived": 471, "queue_mean": 17.505556, "travel_time_mean": 130.415, "wall_seconds": 11.1255},
+    "max_pressure": {"arrived": 461, "queue_mean": 22.435185, "travel_time_mean": 136.064103, "wall_seconds": 11.2106},
+    "note": "Short smoke only; do not interpret as statistically supported performance comparison. 1 vehicle had not departed at horizon and unfinished vehicles remain in-network."
+  }
+}

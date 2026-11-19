@@ -1,4 +1,15 @@
-# Initial compatibility intent; generate a complete platform lock with `python -m pip freeze` after SUMO wheel installation.
+# Direct dependency snapshot from the verified Python 3.13 environment.
+# The container's global site-packages made pip freeze include machine-local conda URLs;
+# generate a full transitive lock from a clean venv before long training studies.
 eclipse-sumo==1.25.0
 traci==1.25.0
-# Actual local validation was Python 3.13.13, torch 2.14.0+cu130 (CUDA runtime 13.0).
+sumolib==1.25.0
+numpy==2.5.3
+torch==2.14.0
+gymnasium==1.4.0
+pandas==2.3.3
+matplotlib==3.11.2
+streamlit==1.51.0
+pydeck==0.9.3
+PyYAML==6.0.3
+pytest==9.2.0

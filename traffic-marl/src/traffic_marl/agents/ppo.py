@@ -41,10 +41,8 @@ def update(model,optimizer,rollout,epochs=4,clip=.2,entropy_coef=.01,batch=64):
     obs=torch.as_tensor(obs,dtype=torch.float32); mask=torch.as_tensor(mask,dtype=torch.bool)
     actions=torch.as_tensor(actions,dtype=torch.long); old=torch.as_tensor(logp,dtype=torch.float32)
     ret=torch.as_tensor(returns,dtype=torch.float32); adv=torch.as_tensor(adv,dtype=torch.float32)
-    # Flatten time x agent samples; critic still receives the full joint state per sample.
-    shape=obs.shape; obs=obs.reshape(-1,shape[-1]); mask=mask.reshape(-1,mask.shape[-1])
-    actions=actions.reshape(-1); old=old.reshape(-1); ret=ret.reshape(-1); adv=adv.reshape(-1)
     adv=(adv-adv.mean())/(adv.std(unbiased=False)+1e-8); stats=[]
+    # Mini-batch whole timesteps so the MAPPO critic sees the full joint observation.
     for _ in range(epochs):
         for ids in torch.randperm(len(obs)).split(batch):
             dist=model.distribution(obs[ids],mask[ids]); new=dist.log_prob(actions[ids])
