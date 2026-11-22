@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "traffic-signal-marl"
+version = "0.1.0"
+description = "Reproducible SUMO-RL traffic signal control experiments"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "sumo-rl==1.4.5",
+  "gymnasium==1.0.0",
+  "pettingzoo==1.24.3",
+  "numpy==2.5.3",
+  "pandas==2.2.3",
+  "Pillow==11.0.0",
+  "eclipse-sumo==1.28.0",
+  "sumo-data==1.28.0",
+  "sumolib==1.28.0",
+  "traci==1.28.0",
+]
+
+[project.optional-dependencies]
+test = ["pytest==8.3.4"]
+train = ["torch==2.14.0"]
+libsumo = ["libsumo==1.28.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

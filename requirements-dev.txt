@@ -1,3 +1,0 @@
--r requirements.txt
-playwright==1.65.2
-markdown-it-py>=3,<5

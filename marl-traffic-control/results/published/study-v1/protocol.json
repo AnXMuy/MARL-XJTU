@@ -1,0 +1,36 @@
+{
+  "output": "results/study-v1",
+  "profiles": {
+    "C1": 1.0,
+    "C2": 0.5,
+    "C3": 0.25
+  },
+  "initialization_seeds": [
+    11,
+    22,
+    33
+  ],
+  "train_demand_seeds": [
+    101,
+    102,
+    103
+  ],
+  "test_demand_seeds": [
+    1000,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    1007,
+    1008,
+    1009
+  ],
+  "training_episodes": 24,
+  "demand_seconds": 300,
+  "episode_seconds": 600,
+  "primary_metric": "restricted_wait_seconds_per_scheduled_vehicle",
+  "bootstrap_resamples": 10000,
+  "note": "C1/C2 clearance regimes and C3 oversaturated robustness regime selected from independent capacity seeds 71/72. Training budget limited to 24 episodes per seed; no convergence claim. Ablations: centralized critic removed (MAPPO->IPPO), network rather than local queue reward (MAPPO->MAPPO-network)."
+}
