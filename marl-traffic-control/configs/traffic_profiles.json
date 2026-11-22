@@ -1,9 +1,0 @@
-{
-  "note": "Provisional generation rates only. Do not label these as calibrated complexity levels until baseline capacity pretests are complete.",
-  "episode_seconds": 900,
-  "profiles": {
-    "provisional_low": {"trip_period_seconds": 12.0},
-    "provisional_medium": {"trip_period_seconds": 6.0},
-    "provisional_high": {"trip_period_seconds": 3.0}
-  }
-}

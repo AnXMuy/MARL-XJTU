@@ -7,7 +7,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from extended import ROOT, atomic_json, evaluation_task
+from run_experiment import ROOT, atomic_json, evaluation_task
 
 
 def examples(study):
@@ -25,7 +25,7 @@ def run(study, output, backend):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--study", type=Path, default=ROOT / "results/study-v2")
+    parser.add_argument("--study", type=Path, default=ROOT / "results/experiment")
     parser.add_argument("--output", type=Path, default=ROOT / "results/backend-pilot")
     parser.add_argument("--worker", choices=["traci", "libsumo"])
     args = parser.parse_args()
