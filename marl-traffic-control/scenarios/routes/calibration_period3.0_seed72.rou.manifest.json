@@ -1,0 +1,10 @@
+{
+  "network": "scenarios/network/grid4x4.net.xml",
+  "network_sha256": "19e3e90ac11f0277609ec8d9cf1477af42b34e03fcf7a89a3bb582bf06ad9670",
+  "route_file": "scenarios/routes/calibration_period3.0_seed72.rou.xml",
+  "route_sha256": "e8442e9e8c08d50fc073de0b7fd0f6655a74e06d0fc5d2415715e5540099f04b",
+  "seed": 72,
+  "period_seconds": 3.0,
+  "demand_duration_seconds": 300,
+  "sumo_version": "Eclipse SUMO sumo 1.28.0"
+}

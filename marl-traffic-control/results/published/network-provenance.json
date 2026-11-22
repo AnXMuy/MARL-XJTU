@@ -1,0 +1,5 @@
+{
+  "original_sha256": "f7255ca9f5bf1c17c9b63921855966102620cdaabc0a502540ec81a16ed99251",
+  "published_sha256": "19e3e90ac11f0277609ec8d9cf1477af42b34e03fcf7a89a3bb582bf06ad9670",
+  "change": "Only the local path in the generator comment was made relative; the rest is byte-identical."
+}

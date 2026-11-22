@@ -1,0 +1,13 @@
+{
+  "scenario": "smoke",
+  "episode_seconds": 900,
+  "delta_time_seconds": 5,
+  "yellow_time_seconds": 3,
+  "min_green_seconds": 5,
+  "max_green_seconds": 50,
+  "sumo_seed": 42,
+  "network_file": "scenarios/network/grid4x4.net.xml",
+  "route_file": "scenarios/routes/smoke_seed42.rou.xml",
+  "controller": "max-pressure",
+  "reward": "diff-waiting-time"
+}

@@ -1,0 +1,92 @@
+[
+  {
+    "profile": "C1",
+    "method": "fixed-10",
+    "init": null,
+    "traci_s": 8.65581226348877,
+    "libsumo_s": 0.34414005279541016,
+    "same_metrics": true,
+    "same_trace": true,
+    "same_actions": true
+  },
+  {
+    "profile": "C1",
+    "method": "max-pressure",
+    "init": null,
+    "traci_s": 8.722059488296509,
+    "libsumo_s": 0.4664773941040039,
+    "same_metrics": true,
+    "same_trace": true,
+    "same_actions": true
+  },
+  {
+    "profile": "C1",
+    "method": "mappo",
+    "init": 11,
+    "traci_s": 6.7402870655059814,
+    "libsumo_s": 0.4903872013092041,
+    "same_metrics": true,
+    "same_trace": true,
+    "same_actions": true
+  },
+  {
+    "profile": "C2",
+    "method": "fixed-10",
+    "init": null,
+    "traci_s": 10.523244619369507,
+    "libsumo_s": 0.7301745414733887,
+    "same_metrics": true,
+    "same_trace": true,
+    "same_actions": true
+  },
+  {
+    "profile": "C2",
+    "method": "max-pressure",
+    "init": null,
+    "traci_s": 12.35160756111145,
+    "libsumo_s": 0.9133837223052979,
+    "same_metrics": true,
+    "same_trace": true,
+    "same_actions": true
+  },
+  {
+    "profile": "C2",
+    "method": "mappo",
+    "init": 11,
+    "traci_s": 10.132779836654663,
+    "libsumo_s": 0.8081581592559814,
+    "same_metrics": true,
+    "same_trace": true,
+    "same_actions": true
+  },
+  {
+    "profile": "C3",
+    "method": "fixed-10",
+    "init": null,
+    "traci_s": 27.88782501220703,
+    "libsumo_s": 2.0907857418060303,
+    "same_metrics": true,
+    "same_trace": true,
+    "same_actions": true
+  },
+  {
+    "profile": "C3",
+    "method": "max-pressure",
+    "init": null,
+    "traci_s": 29.800471782684326,
+    "libsumo_s": 2.1756303310394287,
+    "same_metrics": true,
+    "same_trace": true,
+    "same_actions": true
+  },
+  {
+    "profile": "C3",
+    "method": "mappo",
+    "init": 11,
+    "traci_s": 27.382375717163086,
+    "libsumo_s": 1.9448978900909424,
+    "same_metrics": true,
+    "same_trace": true,
+    "same_actions": true
+  }
+]
